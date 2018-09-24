@@ -13,4 +13,4 @@ class Mascota(models.Model):
     sexo = models.CharField(max_length=10)
     edad_aproximada = models.IntegerField()
     fecha_rescate = models.DateField()
-    vacuna = models.ManyToManyField(Vacuna)
+    vacuna = models.ManyToManyField(Vacuna,null=True,blank=True)
