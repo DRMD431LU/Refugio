@@ -21,7 +21,7 @@
                 <ul class="nav nav-pills">
 
                   <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Mascota</a>
                     <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 41px, 0px);">
                       <a class="dropdown-item" href="#">Registrar</a>
                       <a class="dropdown-item" href="#">Listar</a>
@@ -30,7 +30,7 @@
 
 
                   <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Adopción</a>
                     <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 41px, 0px);">
                       <a class="dropdown-item" href="#">Solicitar</a>
                       <a class="dropdown-item" href="#">Listar solicitudes</a>
@@ -55,7 +55,10 @@
       </div>
     </div>
     {% endblock %}
+
   </div>
+  {%block content%}
+  {%endblock content%}
   <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
   <script src="{%static 'js/bootstrap.min.js'%}"></script>
 </body>

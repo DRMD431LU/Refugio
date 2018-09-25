@@ -9,3 +9,5 @@ class Persona(models.Model):
     telefono = models.CharField(max_length=12)
     email = models.EmailField()
     domicilio = models.TextField()
+    def __str__(self):
+        return '{} {}'.format(self.nombre, self.nombre)
