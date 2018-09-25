@@ -2,7 +2,10 @@ from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from apps.mascota.models import Mascota
 # Create your views here.
+from django.core.urlresolvers import reverse_lazy
 from apps.mascota.forms import MascotaForm
+from django.views.generic.list import ListView
+from django.views.generic.edit import CreateView,UpdateView, DeleteView
 
 def index(request):
     return render(request,"mascota/index.html")
@@ -40,3 +43,26 @@ def mascota_delete(request,id_mascota):
         mascota.delete()
         return redirect('mascota:mascota_listar')
     return render(request,'mascota/mascota_delete.html',{'mascota':mascota})
+
+class MascotaList(ListView):
+    model=Mascota
+    template_name= 'mascota/mascota_list'
+
+class MascotaCreate(CreateView):
+    model = Mascota
+    form_class = MascotaForm
+    template_name = 'mascota/mascota_form.html'
+    success_url= reverse_lazy('mascota:mascota_listar')
+
+
+class MascotaUpdate(UpdateView):
+    model=Mascota
+    form_class=MascotaForm
+    template_name = 'mascota/mascota_form.html'
+    success_url = reverse_lazy('mascota:mascota_listar')
+
+class MascotaDelete(DeleteView):
+    model = Mascota
+    form_class = MascotaForm
+    template_name = 'mascota/mascota_delete.html'
+    success_url= reverse_lazy('mascota:mascota_listar')
