@@ -15,3 +15,5 @@ class Mascota(models.Model):
     edad_aproximada = models.IntegerField()
     fecha_rescate = models.DateField()
     vacuna = models.ManyToManyField(Vacuna,null=True,blank=True)
+    def __str__(self):
+        return '{}'.format(self.nombre)

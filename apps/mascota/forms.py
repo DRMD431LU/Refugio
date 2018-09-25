@@ -6,6 +6,7 @@ class MascotaForm(forms.ModelForm):
     class Meta:
         model = Mascota
         fields =[
+            'folio',
             'nombre',
             'sexo',
             'edad_aproximada',
@@ -14,6 +15,7 @@ class MascotaForm(forms.ModelForm):
             'vacuna',
         ]
         labels={
+            'folio':'Código de Identificación',
             'nombre':'Nombre',
             'sexo':'Sexo',
             'edad_aproximada':'Edad aproximada',
@@ -22,6 +24,7 @@ class MascotaForm(forms.ModelForm):
             'vacuna':'Vacunas',
             }
         widgets = {
+            'folio': forms.TextInput(attrs={'class':'form-control'}),
             'nombre': forms.TextInput(attrs={'class':'form-control'}),
             'sexo':forms.TextInput(attrs={'class':'form-control'}),
             'edad_aproximada':forms.TextInput(attrs={'class':'form-control'}),
