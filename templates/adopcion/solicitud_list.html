@@ -1,0 +1,32 @@
+{%extends 'base/base.html'%}
+
+{%block content%}
+
+<table class="table table-bordered table-hover table-responsive table-striped">
+  <thead>
+    <tr>
+      <td># solicitud</td>
+      <td>adoptante</td>
+      <td>no. mascotas  </td>
+      <td>Razones</td>
+      <td>Acciones</td>
+    </tr>
+  </thead>
+  <tbody>
+    {%if object_list%}
+    {%for object in object_list%}
+    <tr>
+      <td>{{object.id}}</td>
+      <td>{{object.persona}}</td>
+      <td>{{object.numero_mascotas}}</td>
+      <td>{{object.razones}}</td>
+      <td><a class="btn btn-info" href="{%url 'adopcion:solicitud_editar' object.id%}">Editar </a>
+      {# <!-- #<a class="btn btn-danger" href="{%url 'adopcion:solicitud_borrar' solicitud.id%}">Eliminar </a>--></td> #}
+    </tr>
+    {%endfor%}
+    {%else%}
+    <h1>No hay registros</h1>
+    {%endif%}
+  </tbody>
+</table>
+{%endblock%}

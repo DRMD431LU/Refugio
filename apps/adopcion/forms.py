@@ -27,7 +27,7 @@ class PersonaForm(forms.ModelForm):
             'edad':forms.TextInput(attrs={'class':'form-control'}),
             'telefono':forms.TextInput(attrs={'class':'form-control'}),
             'email':forms.TextInput(attrs={'class':'form-control'}),
-            'domicilio':forms.Select(attrs={'class':'form-control'}),
+            'domicilio':forms.TextInput(attrs={'class':'form-control'}),
         }
 
 class SolicitudForm(forms.ModelForm):
