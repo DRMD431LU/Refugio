@@ -48,18 +48,19 @@ class SolicitudUpdate(UpdateView):
 	template_name = 'adopcion/solicitud_form.html'
 	form_class= SolicitudForm
 	second_form_class = PersonaForm 
-	success_url = reverse_lazy('adopcion: solicitud_listar')
+	success_url = reverse_lazy('adopcion:solicitud_listar')
 
 	def get_context_data(self,**kwargs):
 		context = super(SolicitudUpdate,self).get_context_data(**kwargs)
 		pk=self.kwargs.get('pk',0)
 		solicitud= self.model.objects.get(id=pk)
-		persona=self.second_model.objects.get(id=solicitud.persona_id)
+		persona=   self.second_model.objects.get(id=solicitud.persona_id)
 		if 'form' not in context:
-			context['form'] = self.form_class
+			context['form'] = self.form_class()
 
 		if 'form2' not in context:
-			context['form2']=self.second_form_class(instance = persona)
+			context['form2']= self.second_form_class(instance = persona)
+
 		context['id'] = pk
 
 		return context
@@ -76,8 +77,11 @@ class SolicitudUpdate(UpdateView):
 			form2.save()
 			return HttpResponseRedirect(self.get_success_url())
 		else:
-			return HttpsResponseRedirect(self.get_success_url())
+			return HttpResponseRedirect(self.get_success_url())
 
-class SolicitudDelete():
-	pass
+class SolicitudDelete(DeleteView):
+	model = Solicitud
+	model = Solicitud
+	template_name = 'adopcion/solicitud_delete.html'
+	success_url = reverse_lazy('adopcion:solicitud_listar') 
 
