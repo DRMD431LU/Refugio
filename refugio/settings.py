@@ -26,7 +26,7 @@ SECRET_KEY = 'p=*x*ve2e3ssy-+d1b_2ae+j&!*dsj_v97n1s49s%hj(h6fweu'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -132,11 +132,12 @@ STATICFILES_DIRS=(os.path.join(BASE_DIR,"static"),)
 
 
 LOGIN_REDIRECT_URL=reverse_lazy('adopcion:solicitud_listar')
+LOGOUT_REDIRECT_URL = reverse_lazy('login')
 
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT=25
-EMAIL_HOST_USER='vriosto@utel.edu.mx'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'cursodjangocf@gmail.com'
 EMAIL_HOST_PASSWORD = ''
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
